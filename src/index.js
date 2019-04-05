@@ -1,4 +1,5 @@
-// import {select} from 'd3';
+  import * as d3 from 'd3';
+  import './index.css';
 
 function parsetransData(d){
   return {
