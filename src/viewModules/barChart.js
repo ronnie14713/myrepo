@@ -1,59 +1,45 @@
 import * as d3 from 'd3';
 import {
-     ageG
+    dataCombined
 } from '../data';
 
+
+
+
+
 //a barchart about age composition by county
-function barChart(ageG){
+function barChart(){
+    let maxY;
+    
 
+    function exportFunction(rootDOM, data){
+        
 
-    function exportFunction(data, rootDOM, key){
-
-        //define fundamental parameter
         const W = rootDOM.clientWidth;
         const H = rootDOM.clientHeight;
-        const margin = 60;
-        const innerWidth = W - 1.5 * margin;
-        const innerHeight = H - 1.5 * margin;
+        const margin = {t:32, r:32, b:64, l:64};
+        const innerWidth = W - margin.l - margin.r;
+        const innerHeight = H - margin.t - margin.b;
 
-        console.log(margin);
-
-     //    //setup XY scale
-     //    const yScale = d3.scaleLinear()
-     //                     .domain([0,100])
-     //                     .range([innerHeight, 0]);
-        
-
-     //    const xScale = d3.scaleBand()
-     //                     .domain(ageG.map((d) => d.key))
-     //                     .range([0, innerWidth])                         
-     //                     .padding(0.2);
-
-        
+        const scaleX =_; //!! might not need
+        const scaleY = d3.scaleLinear()
+                         .domain([0, maxY])
+                         .range([innerHeight, 0]);   
 
 
-     //    const chart = svg.append('g')
-          //                .attr('transform', `translate(${margin}, ${margin})`);
+        //append svg
+        const svg = d3.select('#bar_chart')
+                      .append('svg')
+                      .attr('width', W)
+                      .attr('height', H);
 
-          //     chart.append('g')
-          //          .call(d3.axisLeft(yScale));
+        svg.selectAll('rect')
+           .data(data, function(d){
+               return 
+           })
+                      
 
-        
-
-          //     chart.append('g')
-          //          .attr('transform', `translate(0, ${height})`)
-          //          .call(d3.axisBottom(xScale));
-
-
-          //     chart.selectAll()
-          //          .data(goals)
-          //          .enter()
-          //          .append('rect')
-          //          .attr('x', (s) => xScale(s.language))
-          //          .attr('y', (s) => yScale(s.value))
-          //          .attr('height', (s) => height - yScale(s.value))
-          //          .attr('width', xScale.bandwidth())
-
+     
 
 
         
@@ -73,5 +59,7 @@ function barChart(ageG){
 
 
 }
+
+
 
 export default barChart;
