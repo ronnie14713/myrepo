@@ -98,6 +98,8 @@ function drawCartogram(rootDom, data){
 	
 	const nodes = plot.selectAll('.node')
 					  .data(data, d => d.key);
+					  
+	//exit pattern
 	nodes.exit().remove();
 	//d3js enter pattern
 	const nodesEnter = nodes.enter()
